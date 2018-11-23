@@ -1,0 +1,124 @@
+import java.io.*;
+
+public class TicTacToe
+{
+ /*static int condition(int A[][],int row,int col)
+ {
+  if(A)
+  //System.out.println("Fuck you charlie");
+  return 0;
+ }*/
+ static int whoWins(String A[][],String P, char SP,int r,int c )
+ {   int count1=0;
+  
+  
+  A[r][c]=Character.toString(SP);
+  String SP1=Character.toString(SP);
+  /*if(A[0][0].equals(Character.toString(SP)))
+   System.out.println("Good Job");*/
+  if(A[0][0].equals(SP1) && A[1][1].equals(SP1) && A[2][2].equals(SP1) )
+   { count1=1;return count1;}
+  else if(A[0][1].equals(SP1) && A[0][0].equals(SP1) && A[0][2].equals(SP1) )
+   { count1=1;return count1;}
+  else if(A[1][1].equals(SP1) && A[1][0].equals(SP1) && A[1][2].equals(SP1) )
+   { count1=1;return count1;}
+  else if(A[2][1].equals(SP1) && A[2][0].equals(SP1) && A[2][2].equals(SP1) )
+   { count1=1;return count1;}
+  else if(A[0][1].equals(SP1) && A[1][1].equals(SP1) && A[2][1].equals(SP1) )
+   { count1=1;return count1;}
+  else if(A[0][0].equals(SP1) && A[1][0].equals(SP1) && A[2][0].equals(SP1) )
+   { count1=1;return count1;}
+  else if(A[0][2].equals(SP1) && A[1][2].equals(SP1) && A[2][2].equals(SP1) )
+   { count1=1;return count1;}
+  else if(A[0][2].equals(SP1) && A[1][1].equals(SP1) && A[2][0].equals(SP1) )
+   { count1=1;return count1;}
+  
+  else
+  {
+   count1=0;
+   //System.out.println("Fuck you charlie");
+   return count1;              
+  }
+  /*for(int i=0;i<3;i++)
+  {
+   for(int j=0;j<3;j++)
+   {
+    if(A[])
+   }
+  }*/
+ }
+ public static void main(String[] args)throws Exception
+ {
+  BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+  
+   String[][] A=new String[3][3];
+   for(int i=0;i<3;i++)
+   {
+    for(int j=0;j<3;j++)
+    {
+     A[i][j]=Character.toString('-');
+    }
+   }
+   for(int i=0;i<3;i++)
+   {
+    for(int j=0;j<3;j++)
+    {
+     System.out.print(A[i][j]);
+    }
+    System.out.println();
+   }
+  System.out.println("Enter the name of Player One");
+  String P1=br.readLine();
+  System.out.println("Enter the name of Player Two");
+  String P2=br.readLine();
+  
+  char SP1='x';
+  char SP2='o';
+  int t=0;
+  System.out.println();
+  System.out.println();
+  System.out.println(P1+" you are assigned symbol "+SP1);
+  System.out.println(P2+" you are assigned symbol "+SP2);
+  System.out.println();
+  System.out.println();
+  
+  int r,c;
+  int count=0;
+  while(t==0)
+  { 
+   count++;
+   if(count%2!=0)
+   {
+    System.out.println(P1+" chance: enter Row and Column");
+       r=Integer.parseInt(br.readLine());
+    c=Integer.parseInt(br.readLine()); 
+    t=whoWins(A,P1,SP1,r,c);
+    if(t>0)
+     System.out.println("Player "+P1+" wins. Cheers!!!!");
+   }
+   else
+   {
+    System.out.println(P2+" chance: enter Row and Column");
+       r=Integer.parseInt(br.readLine());
+    c=Integer.parseInt(br.readLine());
+    t=whoWins(A,P2,SP2,r,c);
+    if(t>0)
+     System.out.println("Player "+P2+" wins. Cheers!!!!");
+   }
+    System.out.println();
+   //System.out.println("value of t is="+t);
+   
+   
+   
+   
+   for(int i=0;i<3;i++)
+   {
+    for(int j=0;j<3;j++)
+    {
+     System.out.print(A[i][j]);
+    }
+    System.out.println();
+   }
+  }
+ }
+}
